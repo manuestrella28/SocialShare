@@ -87,8 +87,8 @@ $(document).ready(function() {
         options.url = siteUrl + options.url;
       }
 
-      if (!options.mini) {
-        options.mini = true;
+      if (!options.mini || options.mini !== "true") {
+        options.mini = "true";
       }
 
       //get array of query params;
