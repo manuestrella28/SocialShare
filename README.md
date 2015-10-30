@@ -14,8 +14,24 @@ You can compose social network share URLs in two ways:
 
 ##Install
 
-1. Install [Bower](http://bower.io "see instructions") and run `bower install`
-2. Include the source code in the index.html `<script src="social-share-tool.js"></script>`
+###Bower
+
+```sh
+$ bower install --save SocialShare
+```
+
+Include the javscript file in your web page:
+
+```html
+<!DOCTYPE HTML>
+<html>
+  <body>
+    //...
+    <script src="bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="bower_components/SocialShare/social-share.js"></script>
+  </body>
+</html>
+```
 
 ##Supported Social Netorks
 
