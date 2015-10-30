@@ -1,0 +1,22 @@
+{
+  "name": "socialshare-projectpage",
+  "version": "1.0.0",
+  "homepage": "https://github.com/mlom/SocialShare",
+  "authors": [
+    "mlom <lom.michael@gmail.com>"
+  ],
+  "description": "The Social Share module provides an interface for generating social network sharing URLs",
+  "main": "app/js/main.js",
+  "moduleType": [],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "SocialShare": "~0.1.1"
+  }
+}
