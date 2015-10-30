@@ -1,12 +1,12 @@
 {
-  "name": "social-share-tool",
-  "version": "0.0.0",
-  "homepage": "https://github.com/mlom/social-share-tool",
+  "name": "SocialShare",
+  "version": "0.1.0",
+  "homepage": "https://github.com/mlom/SocialShare",
   "authors": [
     "mlom <lom.michael@gmail.com>"
   ],
   "description": "Tool to help share content via social share network URLs",
-  "main": "",
+  "main": "socialshare.js",
   "moduleType": [],
   "license": "MIT",
   "ignore": [
@@ -18,5 +18,12 @@
   ],
   "dependencies": {
     "jquery": "~2.1.4"
-  }
+  },
+  "keywords": [
+    "social",
+    "network",
+    "sharing",
+    "share",
+    "url"
+  ]
 }
