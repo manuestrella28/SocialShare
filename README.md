@@ -1,6 +1,8 @@
-# social-share-tool
+# Social Share
 
-The Social Share module helps share content via social network URLs.
+The Social Share module provides an interface for generating social network sharing URLs.
+Social network share URLs will share content based on [the Open Graph protocol](http://ogp.me/).
+
 You can compose social network share URLs in two ways:
 
 1. [Imperatively with Javascript](#UsageJavascript)
@@ -46,12 +48,10 @@ $("#sharebutton").on("click", function() {
 `SocialShare.share(socialNetworkName, [paramOptions])`
 
 
-The `share` method is used to generate a social share url which contains a query string of passed parameter keys and values.
-The generated social share url will open in a pop-up window for the user to share the page and content to their social network timeline.
+The `share` method is used to generate a social share url which contains a query string of passed parameter keys and values. The generated social share url will open in a pop-up window for the user to share the page and content to their social network timeline.
 
 
-The `paramOptions` object is optional. By invoking the `share` method with only a `socialNetworkName` value, the social share url will
-generate with the respective social network's required parameters and default to the current page's url. 
+The `paramOptions` object is optional. By invoking the `share` method with only a `socialNetworkName` value, the social share url will generate with the respective social network's required parameters and default to the current page's url. 
 
 
 #####Arguments:
@@ -71,8 +71,9 @@ generate with the respective social network's required parameters and default to
 |                         | source           | The source of the content (e.g. your website or application name)                   |
 
 
-For each social network, the url parameter will be auto-populated from the location.href of the page when not explicitly set.
-Any url parameter set will be concatentated to the location.href value of the page.
+- **For each social network, the url parameter will be auto-populated from the location.href of the page when not explicitly set.**
+- **Any url parameter set will be concatentated to the location.href value of the page.**
+- **All parameter values are URL encoded.**
 
 
 ###<a name="UsageHTML"></a> HTML Markup
@@ -99,10 +100,12 @@ Each social network name must include the  `share-` prefix.
 <ANY share-text="title value" share-hashtags="hashtag1, hashtag2" class="share-twitter">...</AnY>
 ```
 
+------
+
 #####Resources:
-- [Facebook](https://developers.facebook.com/docs/sharing)
-- [Twitter](https://dev.twitter.com/web/tweet-button/web-intent)
-- [Linkedin](https://developer.linkedin.com/docs/share-on-linkedin)
+- [Facebook Sharing](https://developers.facebook.com/docs/sharing)
+- [Twitter Sharing](https://dev.twitter.com/web/tweet-button/web-intent)
+- [Linkedin Sharing](https://developer.linkedin.com/docs/share-on-linkedin)
 - [Twitter Parameters](https://dev.twitter.com/web/tweet-button/parameters)
 - [LinkedIn Parameters](https://developer.linkedin.com/docs/share-on-linkedin) - Click on "Custom URL" tab
 - [Scotch.io Article - Sharing on Facebook](https://scotch.io/tutorials/how-to-share-webpages-with-facebook)

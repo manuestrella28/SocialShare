@@ -109,8 +109,6 @@ $(document).ready(function() {
           params.push(queryStr);
         }
       }
-      console.log('paramOptions', paramOptions);
-      console.log('params', params);
       return params;
     }
 
@@ -125,7 +123,6 @@ $(document).ready(function() {
       }
 
       var shareUrl = shareServices[serviceType](paramOptions);
-      console.log('shareUrl', shareUrl);
       showPopup(shareUrl);
       return this;
     }
