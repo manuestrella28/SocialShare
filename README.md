@@ -23,7 +23,7 @@ You can compose social network share URLs in two ways:
 
 ##Usage
 
-###<a name="UsageJavascript></a> Javascript
+###<a name="UsageJavascript"></a> Javascript
 
 
 ```javascript
