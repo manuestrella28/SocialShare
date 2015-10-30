@@ -7,19 +7,25 @@ You can compose social network share URLs in two ways:
 2. [Declaratively with HTML](#UsageHTML)
 
 ##Dependencies
+
 - [jQuery](https://jquery.com/)
 
 ##Install
+
 1. Install [Bower](http://bower.io "see instructions") and run `bower install`
 2. Include the source code in the index.html `<script src="social-share-tool.js"></script>`
 
 ##Supported Social Netorks
+
 - [Facebook](https://developers.facebook.com/docs/sharing)
 - [Twitter](https://dev.twitter.com/web/tweet-button/web-intent)
 - [Linkedin](https://developer.linkedin.com/docs/share-on-linkedin)
 
 ##Usage
+
 ###<a name="UsageJavascript></a> Javascript
+
+
 ```javascript
 $("#sharebutton").on("click", function() {
     SocialShare.share("twitter", {
@@ -31,22 +37,27 @@ $("#sharebutton").on("click", function() {
 });
 ```
 
+
 ####API
 
 **#share**
 
+
 `SocialShare.share(socialNetworkName, [paramOptions])`
+
 
 The `share` method is used to generate a social share url which contains a query string of passed parameter keys and values.
 The generated social share url will open in a pop-up window for the user to share the page and content to their social network timeline.
 
+
 The `paramOptions` object is optional. By invoking the `share` method with only a `socialNetworkName` value, the social share url will
 generate with the respective social network's required parameters and default to the current page's url. 
+
 
 #####Arguments:
 
 | **socialNetworkName**   | **paramOptions** |                                      **Notes**                                      |
-|:-----------------------:|:----------------:|:-----------------------------------------------------------------------------------:|
+|-------------------------|------------------|-------------------------------------------------------------------------------------|
 | `"facebook"`            | u                | URL to shared page; value is relative from the location.href of the page            |
 | `"twitter"`             | text             | Tweet text                                                                          |
 |                         | url              | URL to shared page; value is relative from the location.href of the page            |
@@ -65,6 +76,7 @@ Any url parameter set will be concatentated to the location.href value of the pa
 
 
 ###<a name="UsageHTML"></a> HTML Markup
+
 ```html
 <a href="javacsript:void(0);" share-url="share-page.html" share-text="Check out this website" share-hashtags="SocialShareTool, Tooling" share-via="twitterUserName" class="share-twitter">
   <span>Share on Twitter<span>
@@ -72,14 +84,16 @@ Any url parameter set will be concatentated to the location.href value of the pa
 ```
 
 #####Markup Requirements:
-Set social share network via the class:
+
+**Set social share network via the class:**
 
 ```html
 <ANY class="share-twitter">...</ANY>
 ```
+
 Each social network name must include the  `share-` prefix.
 
-Set url parameter options via `share-` prefixed attributes:
+**Set url parameter options via `share-` prefixed attributes:**
 
 ```html
 <ANY share-text="title value" share-hashtags="hashtag1, hashtag2" class="share-twitter">...</AnY>
