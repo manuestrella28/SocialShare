@@ -6,11 +6,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>SocialShare</title>
   <meta name="description" content="The Social Share module provides a global interface for generating social network sharing URLs. Social network share URLs will share content based on the Open Graph protocol." />
-  <link rel="canonical" href="http://mlom.github.io/SocialShare/" />
+  <link rel="canonical" href="http://mlom.github.io/SocialShare/dist/" />
   <meta property="og:title" content="SocialShare" />
   <meta property="og:type" content="article" />
-  <meta property="og:url" content="http://mlom.github.io/SocialShare/" />
-  <meta property="og:image" content="http://mlom.github.io/SocialShare/images/dream.jpg" />
+  <meta property="og:url" content="http://mlom.github.io/SocialShare/dist/" />
+  <meta property="og:image" content="http://mlom.github.io/SocialShare/dist/images/dream.jpg" />
   <!--   <meta property="og:type" content="video.movie" />
   <meta property="og:video" content="https://www.youtube.com/v/G7RgN9ijwE4" />
   <meta property="og:video:type" content="application/x-shockwave-flash" />
@@ -22,7 +22,7 @@
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="SocialShare" />
   <meta name="twitter:description" content="Create social network sharer URLs with ease. Thanks for checking out SocialShare!" />
-  <meta name="twitter:image" content="http://mlom.github.io/SocialShare/images/dream.jpg" />
+  <meta name="twitter:image" content="http://mlom.github.io/SocialShare/dist/images/dream.jpg" />
   <!--  <meta name="twitter:player" content="https://www.youtube.com/embed/G7RgN9ijwE4">
   <meta name="twitter:player:width" content="853">
   <meta name="twitter:player:height" content="480"> -->
@@ -30,7 +30,7 @@
   <!-- bower:css -->
   <!-- endbower -->
   <!-- endbuild -->
-  <!-- build:css css/style.min.css -->
+  <!-- build:css css/style.css -->
   <link rel="stylesheet" type="text/css" href="css/style.css">
   <!-- endbuild -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
@@ -44,13 +44,13 @@
     <header>
       <h1>HTML Class Examples:</h1>
     </header>
-    <div class="share-button fb share-facebook">
+    <div class="share-button fb share-facebook" share-u="dist/">
       <a href="javascript:void(0);"><i class="fa fa-facebook"></i></a>
     </div>
-    <div class="share-button tw share-twitter" share-text="Check out SocialShare" share-hashtags="socialshare, tooling" share-via="emailnitram">
+    <div class="share-button tw share-twitter" share-url="dist/" share-text="Check out SocialShare" share-hashtags="socialshare, tooling" share-via="emailnitram">
       <a href="javascript:void(0);"><i class="fa fa-twitter"></i></a>
     </div>
-    <div class="share-button li share-linkedin" share-title="Check out SocialShare" share-summary="Create social network sharer URLs with ease. Thanks for checking out SocialShare!">
+    <div class="share-button li share-linkedin" share-url="dist/" share-title="Check out SocialShare" share-summary="Create social network sharer URLs with ease. Thanks for checking out SocialShare!">
       <a href="javascript:void(0);"><i class="fa fa-linkedin"></i></a>
     </div>
   </section>
@@ -74,7 +74,7 @@
   <script src="/bower_components/SocialShare/socialshare.js"></script>
   <!-- endbower -->
   <!-- endbuild -->
-  <!-- build:js scripts/main.min.js -->
+  <!-- build:js scripts/main.js -->
   <script type="text/javascript" src="js/main.js"></script>
   <!-- endbuild -->
 </body>
