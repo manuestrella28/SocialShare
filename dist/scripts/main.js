@@ -5,18 +5,15 @@ $(document).ready(function() {
     
     //facebook button
     if ($button.hasClass('fb') && !$button.hasClass('share-facebook')) {
-      var paramOptions = {
-        u: 'dist/'
-      };
+      
       //call share api
-      SocialShare.share('facebook', paramOptions);
+      SocialShare.share('facebook');
     }
     
     //twitter button
     if ($button.hasClass('tw') && !$button.hasClass('share-twitter')) {
 
       var paramOptions = {
-        url: 'dist/',
         text: 'Check out SocialShare',
         hashtags: 'socialshare, tooling',
         via: 'emailnitram'
@@ -30,7 +27,6 @@ $(document).ready(function() {
     if ($button.hasClass('li') && !$button.hasClass('share-linkedin')) {
 
       var paramOptions = {
-        url: 'dist/',
         title: 'Check out SocialShare',
         summary: 'Create social network sharer URLs with ease. Thanks for checking out SocialShare!'
       };
