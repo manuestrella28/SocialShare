@@ -8,6 +8,8 @@ You can compose social network share URLs in two ways:
 1. [Imperatively with Javascript](#UsageJavascript)
 2. [Declaratively with HTML](#UsageHTML)
 
+**See the [Demo Page](http://mlom.github.io/SocialShare/dist/) for examples.**
+
 ##Dependencies
 
 - [jQuery](https://jquery.com/)
@@ -33,7 +35,7 @@ Include the javscript file in your web page:
 </html>
 ```
 
-##Supported Social Netorks
+##Supported Social Networks
 
 - [Facebook](https://developers.facebook.com/docs/sharing)
 - [Twitter](https://dev.twitter.com/web/tweet-button/web-intent)
@@ -88,7 +90,7 @@ The `paramOptions` object is optional. By invoking the `share` method with only 
 
 
 - **For each social network, the url parameter will be auto-populated from the location.href of the page when not explicitly set.**
-- **Any url parameter set will be concatentated to the location.href value of the page.**
+- **Any url parameter set will be concatenated to the location.href value of the page.**
 - **All parameter values are URL encoded.**
 
 
@@ -113,7 +115,7 @@ Each social network name must include the  `share-` prefix.
 **Set url parameter options via `share-` prefixed attributes:**
 
 ```html
-<ANY share-text="title value" share-hashtags="hashtag1, hashtag2" class="share-twitter">...</AnY>
+<ANY share-text="title value" share-hashtags="hashtag1, hashtag2" class="share-twitter">...</ANY>
 ```
 
 ------
