@@ -45,15 +45,25 @@ gulp.task('sass', function() {
 //prepare files for concat and minify, then move to Dist
 gulp.task('html', ['clean', 'bower', 'sass'], function() {
   return gulp.src(indexSrc)
-    .pipe(useref({searchPath: ['.', 'app']}))
-    .pipe(gulpIf('*.js', uglify())) //minifies only javascript files
-    .pipe(gulpIf('*.css', minifyCss())) //minifies only css files
-    .pipe(gulpIf('*.html', minifyHtml({
-      conditionals: true,
-      comments: true,
-      loose: false
-    })))
+    .pipe(useref({
+      searchPath: ['.', 'app']
+    }))
+    // .pipe(gulpIf('*.js', uglify())) //minifies only javascript files
+    // .pipe(gulpIf('*.css', minifyCss())) //minifies only css files
+    // .pipe(gulpIf('*.html', minifyHtml({
+    //   conditionals: true,
+    //   comments: true,
+    //   loose: false
+    // })))
     .pipe(gulp.dest(distSrc));
+});
+
+//copy images to dist
+var imgSrc = 'app/images/**/*.+(png|jpg|jpeg|svg|gif)';
+var imgDest = 'dist/images';
+gulp.task('images', function() {
+  return gulp.src(imgSrc)
+    .pipe(gulp.dest(imgDest));
 });
 
 //remove folders and files from Dist
@@ -82,7 +92,7 @@ gulp.task('watch', ['sass', 'serve'], function() {
   gulp.watch('bower.json', ['bower']);
 });
 
-gulp.task('build', ['html'], function() {
+gulp.task('build', ['html', 'images'], function() {
   return gulp.src('dist/**/*')
     .pipe(size({
       showFiles: false,
