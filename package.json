@@ -1,0 +1,27 @@
+{
+  "name": "socialshare",
+  "version": "1.0.0",
+  "description": "Tool to help share content via social network sharer URLs",
+  "main": "socialshare.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mlom/SocialShare.git"
+  },
+  "keywords": [
+    "social",
+    "network",
+    "sharing"
+  ],
+  "author": "mlom <lom.michael@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mlom/SocialShare/issues"
+  },
+  "homepage": "https://github.com/mlom/SocialShare#readme",
+  "dependencies": {
+    "jquery": "^2.1.4"
+  }
+}
