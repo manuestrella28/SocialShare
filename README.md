@@ -104,19 +104,25 @@ The `paramOptions` object is optional. By invoking the `share` method with only 
 
 #####Markup Requirements:
 
-**Set social share network via the class:**
+**Set the social network via class. Each social network name must include the  `share-` prefix:**
 
 ```html
+<ANY class="share-facebook">...</ANY>
 <ANY class="share-twitter">...</ANY>
+<ANY class="share-linkedin">...</ANY>
 ```
 
-Each social network name must include the  `share-` prefix.
-
-**Set url parameter options via `share-` prefixed attributes:**
+**Set URL parameters via `share-` prefixed attributes:**
 
 ```html
 <ANY share-text="title value" share-hashtags="hashtag1, hashtag2" class="share-twitter">...</ANY>
 ```
+
+**The `data-*` attribute is also supported:**
+```html
+<ANY data-share-text="title value" data-share-hashtags="hashtag1, hashtag2" class="share-twitter">...</ANY>
+```
+
 
 ------
 
