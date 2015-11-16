@@ -180,8 +180,8 @@ $(document).ready(function() {
           var attrName = item.name;
           var attrValue = item.value;
 
-          if (attrName.indexOf((prefix + "-")) === 0) {
-            var param = attrName.split("-")[1];
+          if ((attrName.indexOf(prefix + "-") === 0) || (attrName.indexOf("data-" + prefix + "-") === 0)) {
+            var param = attrName.split(prefix + "-")[1];
             paramOptions[param] = attrValue;
           }
         });
