@@ -30,7 +30,26 @@ Include the javscript file in your web page:
   <body>
     //...
     <script src="bower_components/jquery/dist/jquery.min.js"></script>
-    <script src="bower_components/SocialShare/social-share.js"></script>
+    <script src="bower_components/SocialShare/socialshare.js"></script>
+  </body>
+</html>
+```
+
+###[NPM](https://www.npmjs.com/package/socialshare)
+
+```.sh
+$ npm install --save socialshare
+```
+
+Include the javscript file in your web page:
+
+```html
+<!DOCTYPE HTML>
+<html>
+  <body>
+    //...
+    <script src="node_modules/jquery/dist/jquery.min.js"></script>
+    <script src="node_modules/SocialShare/socialshare.js"></script>
   </body>
 </html>
 ```
