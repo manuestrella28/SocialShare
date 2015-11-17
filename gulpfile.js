@@ -61,7 +61,7 @@ gulp.task('html', ['clean', 'bower', 'sass'], function() {
 //copy images to dist
 var imgSrc = 'app/images/**/*.+(png|jpg|jpeg|svg|gif)';
 var imgDest = 'dist/images';
-gulp.task('images', function() {
+gulp.task('images', ['clean'], function() {
   return gulp.src(imgSrc)
     .pipe(gulp.dest(imgDest));
 });
