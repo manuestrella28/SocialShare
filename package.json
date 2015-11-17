@@ -11,9 +11,12 @@
     "url": "git+https://github.com/mlom/SocialShare.git"
   },
   "keywords": [
-    "social",
-    "network",
-    "sharing"
+    "social network",
+    "url",
+    "share",
+    "share page",
+    "share url",
+    "social share"
   ],
   "author": "mlom <lom.michael@gmail.com>",
   "license": "ISC",
