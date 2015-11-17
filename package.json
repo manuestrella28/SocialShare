@@ -1,6 +1,6 @@
 {
   "name": "socialshare",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Tool to help share content via social network sharer URLs",
   "main": "socialshare.js",
   "scripts": {
