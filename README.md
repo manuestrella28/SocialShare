@@ -154,6 +154,7 @@ The `paramOptions` object is optional. By invoking the `share` method with only 
 - [Facebook Sharing](https://developers.facebook.com/docs/sharing)
 - [Twitter Sharing](https://dev.twitter.com/web/tweet-button/web-intent)
 - [Linkedin Sharing](https://developer.linkedin.com/docs/share-on-linkedin)
+- [Google+](https://developers.google.com/+/web/share/#share-link)
 - [Twitter Parameters](https://dev.twitter.com/web/tweet-button/parameters)
 - [LinkedIn Parameters](https://developer.linkedin.com/docs/share-on-linkedin) - Click on "Custom URL" tab
 - [Scotch.io Article - Sharing on Facebook](https://scotch.io/tutorials/how-to-share-webpages-with-facebook)
