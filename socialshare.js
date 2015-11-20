@@ -11,7 +11,8 @@ $(document).ready(function() {
     var shareServices = {
       "twitter": shareTwitter,
       "facebook": shareFacebook,
-      "linkedin": shareLinkedin
+      "linkedin": shareLinkedin,
+      "googleplus": shareGoogle
     };
 
     function shareTwitter(options) {
@@ -89,6 +90,31 @@ $(document).ready(function() {
 
       if (!options.mini || options.mini !== "true") {
         options.mini = "true";
+      }
+
+      //get array of query params;
+      var params = getQueryStringArray(options, paramProto);
+
+      //get complete share url
+      var shareUrl = getShareUrl(shareAddress, params);
+      return shareUrl;
+    }
+
+    function shareGoogle(options) {
+      var shareAddress = "https://plus.google.com/share?";
+      options = options || {};
+
+      //Reference: https://developers.google.com/+/web/share/#sharelink-endpoint
+      var paramProto = {
+        "url": "url=",
+        "h1": "h1=" //https://developers.google.com/+/web/share/#available-languages
+      };
+
+      //check for required params;
+      if (!options.url) {
+        options.url = siteUrl;
+      } else {
+        options.url = siteUrl + options.url;
       }
 
       //get array of query params;
