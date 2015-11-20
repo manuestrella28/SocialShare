@@ -9220,127 +9220,99 @@ $(document).ready(function() {
     var siteUrl = window.location.href;
 
     var shareServices = {
-      "twitter": shareTwitter,
-      "facebook": shareFacebook,
-      "linkedin": shareLinkedin
+      "twitter": {
+        shareurl: "http://twitter.com/intent/tweet?",
+        paramproto: {
+          "text": "text=", //Optional; Pre-populated UTF-8 and URL-encoded Tweet text.;
+          "url": "url=", //Optional; A fully-qualified URL with a HTTP or HTTPS scheme, URL-encoded.
+          "hashtags": "hashtags=", //Optional; comma-separated list of hashtag values without the preceding # character.
+          "via": "via=", //Optional; A Twitter username to associate with the Tweet
+          "related": "related=" //Optional; Suggest additional Twitter usernames related to the Tweet as comma-separated values...a URL-encoded comma and text after the username;
+        }
+      },
+      "facebook": {
+        shareurl: "http://www.facebook.com/sharer.php?",
+        paramproto: {
+          "u": "u="
+        }
+      },
+      "linkedin": {
+        shareurl: "http://www.linkedin.com/shareArticle?",
+        paramproto: {
+          "url": "url=", //Required; The url-encoded URL of the page that you wish to share.
+          "mini": "mini=", //Required; A required argument who"s value must always be:  true
+          "title": "title=", //Optional; The url-encoded title value that you wish you use.
+          "summary": "summary=", //Optional; The url-encoded description that you wish you use.
+          "source": "source=" //The url-encoded source of the content (e.g. your website or application name).
+        }
+      },
+      "googleplus": {
+        shareurl: "https://plus.google.com/share?",
+        paramproto: {
+          "url": "url=",
+          "hl": "hl=" //https://developers.google.com/+/web/share/#available-languages
+        }
+      }
     };
 
-    function shareTwitter(options) {
-      var shareAddress = "http://twitter.com/intent/tweet?";
-      options = options || {};
-
-      //Reference: https://dev.twitter.com/web/tweet-button/parameters
-      var paramProto = {
-        "text": "text=", //Optional; Pre-populated UTF-8 and URL-encoded Tweet text.;
-        "url": "url=", //Optional; A fully-qualified URL with a HTTP or HTTPS scheme, URL-encoded.
-        "hashtags": "hashtags=", //Optional; comma-separated list of hashtag values without the preceding # character.
-        "via": "via=", //Optional; A Twitter username to associate with the Tweet
-        "related": "related=" //Optional; Suggest additional Twitter usernames related to the Tweet as comma-separated values...a URL-encoded comma and text after the username;
-      };
-
-      //auto-populate url if not explicitly provided
-      if (!options.url) {
-        options.url = siteUrl;
-      } else {
-        options.url = siteUrl + options.url;
+    function share(serviceName, paramOptions) {
+      if (!shareServices[serviceName]) {
+        throw new Error("Share service not defined");
       }
-
-      //get array of query params;
-      var params = getQueryStringArray(options, paramProto);
-
-      //get complete share url;
-      var shareUrl = getShareUrl(shareAddress, params);
-      return shareUrl;
+      var shareUrl = getShareUrl(serviceName, paramOptions);
+      showPopup(shareUrl);
+      return this;
     }
 
-    function shareFacebook(options) {
-      var shareAddress = "http://www.facebook.com/sharer.php?";
+    function getShareUrl(name, options) {
+      var shareAddress = shareServices[name].shareurl;
+      var paramProto = shareServices[name].paramproto;
       options = options || {};
 
-      //The Facebook Sharer only accepts one GET parameter: "u" for the URL;
-      var paramProto = {
-        "u": "u="
-      };
-
-      //check for required params
-      if (!options.u) {
-        options.u = siteUrl;
+      //check for url param for all share services;
+      if (name === "facebook") {
+        options.u ? (options.u = siteUrl + options.u) : (options.u = siteUrl);
       } else {
-        options.u = siteUrl + options.u;
+        options.url ? (options.url = siteUrl + options.url) : (options.url = siteUrl);
+      }
+
+      //check for linkedin requirements
+      if (name === "linkedin") {
+        if (!options.mini || options.mini !== "true") {
+          options.mini = "true";
+        }
       }
 
       //get array of query params;
-      var params = getQueryStringArray(options, paramProto);
-
-      //get complete share url;
-      var shareUrl = getShareUrl(shareAddress, params);
-      return shareUrl;
-    }
-
-    function shareLinkedin(options) {
-      var shareAddress = "http://www.linkedin.com/shareArticle?";
-      options = options || {};
-
-      //Reference: https://developer.linkedin.com/docs/share-on-linkedin
-      //@ the "Customize URL" section
-      var paramProto = {
-        "url": "url=", //Required; The url-encoded URL of the page that you wish to share.
-        "mini": "mini=", //Required; A required argument who"s value must always be:  true
-        "title": "title=", //Optional; The url-encoded title value that you wish you use.
-        "summary": "summary=", //Optional; The url-encoded description that you wish you use.
-        "source": "source=" //The url-encoded source of the content (e.g. your website or application name).
-      };
-
-      //check for required params;
-      if (!options.url) {
-        options.url = siteUrl;
-      } else {
-        options.url = siteUrl + options.url;
-      }
-
-      if (!options.mini || options.mini !== "true") {
-        options.mini = "true";
-      }
-
-      //get array of query params;
-      var params = getQueryStringArray(options, paramProto);
+      var queryParams = getQueryStringArray(options, paramProto);
 
       //get complete share url
-      var shareUrl = getShareUrl(shareAddress, params);
+      var shareUrl = concatShareUrl(shareAddress, queryParams);
       return shareUrl;
     }
 
-    function getQueryStringArray(paramOptions, paramProto) {
+    function getQueryStringArray(options, paramProto) {
       var params = [];
-      paramOptions = paramOptions || {};
+      options = options || {};
 
-      for (var param in paramOptions) {
+      for (var param in options) {
         if (paramProto.hasOwnProperty(param)) {
-          var queryStr = paramProto[param] + encodeURIComponent(paramOptions[param]);
+          var queryStr = paramProto[param] + encodeURIComponent(options[param]);
           params.push(queryStr);
         }
       }
       return params;
     }
 
-    function getShareUrl(shareAddress, queryStringArray) {
-      queryStringArray = queryStringArray || [];
-      return queryStringArray.length ? (shareAddress + queryStringArray.join("&")) : shareAddress;
-    }
-
-    function share(serviceType, paramOptions) {
-      if (!shareServices[serviceType]) {
-        throw new Error("Share service not defined");
-      }
-
-      var shareUrl = shareServices[serviceType](paramOptions);
-      showPopup(shareUrl);
-      return this;
+    function concatShareUrl(shareAddress, queryParams) {
+      queryParams = queryParams || [];
+      var shareUrl = queryParams.length ? (shareAddress + queryParams.join("&")) : shareAddress;
+      return shareUrl;
     }
 
     function showPopup(shareUrl) {
-      var width = 575;
-      var height = 443;
+      var width = 600;
+      var height = 600;
       var left = ($(window).width() - width) / 2;
       var top = ($(window).height() - height) / 2;
       var url = shareUrl;
@@ -9398,15 +9370,16 @@ $(document).ready(function() {
         });
 
         //set social service type
-        var hasClass = function(className) {
+        function hasClass(className) {
           return $(this).hasClass(className);
-        };
+        }
+
         var hasShareService = scn.filter(hasClass.bind(this));
 
         //should only have one share service
         if (hasShareService.length === 1) {
-          var serviceType = hasShareService[0].split("-")[1];
-          share(serviceType, paramOptions);
+          var shareServiceName = hasShareService[0].split("-")[1];
+          share(shareServiceName, paramOptions);
         }
       }
     })();

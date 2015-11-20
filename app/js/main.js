@@ -34,5 +34,12 @@ $(document).ready(function() {
       //call share api
       SocialShare.share('linkedin', paramOptions);
     }
+
+    //google plus button
+    if ($button.hasClass('gp') && !$button.hasClass('share-googleplus')) {
+
+      //call share api
+      SocialShare.share('googleplus');
+    }
   });
 });
