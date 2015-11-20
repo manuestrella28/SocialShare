@@ -59,6 +59,7 @@ Include the javscript file in your web page:
 - [Facebook](https://developers.facebook.com/docs/sharing)
 - [Twitter](https://dev.twitter.com/web/tweet-button/web-intent)
 - [Linkedin](https://developer.linkedin.com/docs/share-on-linkedin)
+- [Google+](https://developers.google.com/+/web/share/#share-link)
 
 ##Usage
 
@@ -70,7 +71,7 @@ $("#sharebutton").on("click", function() {
     SocialShare.share("twitter", {
         url: "share-page.html",
         text: "Check out this website",
-        hashtags: "SocialShareTool, Tooling"
+        hashtags: "SocialShareTool, Tooling",
         via: "twitterUserName"
       });
 });
@@ -106,11 +107,15 @@ The `paramOptions` object is optional. By invoking the `share` method with only 
 |                         | title            | The title value that you wish you use                                               |
 |                         | summary          | The description that you wish you use                                               |
 |                         | source           | The source of the content (e.g. your website or application name)                   |
+| `"googleplus"`          | url              | URL to shared page; value is relative from the location.href of the page            |
+|                         | hl               | The language code for the locale to use on the Google+ sharing page                 |
 
 
-- **For each social network, the url parameter will be auto-populated from the location.href of the page when not explicitly set.**
-- **Any url parameter set will be concatenated to the location.href value of the page.**
+- **For each social network, the url parameter will be auto-populated from the `location.href` of the page when not explicitly set.**
+- **Any url parameter set will be concatenated to the `location.href` value of the page.**
 - **All parameter values are URL encoded.**
+
+- **See [Goolgle+ language codes](https://developers.google.com/+/web/share/#available-languages) for available values.**
 
 
 ###<a name="UsageHTML"></a> HTML Markup

@@ -107,7 +107,7 @@ $(document).ready(function() {
       //Reference: https://developers.google.com/+/web/share/#sharelink-endpoint
       var paramProto = {
         "url": "url=",
-        "h1": "h1=" //https://developers.google.com/+/web/share/#available-languages
+        "hl": "hl=" //https://developers.google.com/+/web/share/#available-languages
       };
 
       //check for required params;
