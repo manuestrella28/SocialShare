@@ -9313,16 +9313,17 @@ $(document).ready(function() {
     function showPopup(shareUrl) {
       var width = 600;
       var height = 600;
-      var left = ($(window).width() - width) / 2;
       var top = ($(window).height() - height) / 2;
-      var url = shareUrl;
-      var opts = "status=1" +
+      var left = ($(window).width() - width) / 2;
+      var windowFeatures = "status=1" +
         ",width=" + width +
         ",height=" + height +
         ",top=" + top +
         ",left=" + left;
+      var url = shareUrl;
+      var windowName = "_blank";
 
-      window.open(url, "socialPopup", opts);
+      window.open(url, windowName, windowFeatures);
 
       return false;
     }
